@@ -290,7 +290,7 @@ static void upd_spawn(void) {
 
 /* ── enemy update ──────────────────────────────────────────────── */
 static void upd_enemies(void) {
-    int any=0;
+    int any=0; (void)any;
     for(int i=0;i<G.ne;i++) {
         Enemy *e=&G.en[i];
         if(!e->alive) continue;

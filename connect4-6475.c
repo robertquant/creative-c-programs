@@ -90,7 +90,7 @@ static void init_colours(void)
 static void draw_cell(int r, int c, int highlight)
 {
     int piece = board[r][c];
-    int is_win = 0;
+    int is_win = 0; (void)is_win;
     for (int i = 0; i < CONNECT; i++)
         if (win_cells[i][0] == r && win_cells[i][1] == c) { is_win = 1; break; }
 
@@ -209,7 +209,7 @@ static int eval_window(int w[4], int player)
 static int evaluate(int player)
 {
     int score = 0;
-    int opp = 3 - player;
+    int opp = 3 - player; (void)opp;
     /* centre column bonus */
     for (int r = 0; r < ROWS; r++)
         if (board[r][COLS/2] == player) score += 6;

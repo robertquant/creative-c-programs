@@ -39,7 +39,9 @@
 #if defined(__linux__)
 #define _DEFAULT_SOURCE
 #elif defined(__APPLE__)
+#ifndef _DARWIN_C_SOURCE
 #define _DARWIN_C_SOURCE
+#endif
 #endif
 
 #include <stdio.h>

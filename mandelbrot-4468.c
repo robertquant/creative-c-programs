@@ -242,7 +242,7 @@ static void render_frame(State *s) {
                 int di = (int)(val * density_len / s->max_iter * 4);
                 if (di > density_len) di = density_len;
                 if (di < 0) di = 0;
-                char ch = DENSITY_CHARS[di];
+                (void)DENSITY_CHARS[di];
 
                 /* Use background color for full-block effect */
                 pos += sprintf(frame_buf + pos, "\033[48;2;%d;%d;%dm ",

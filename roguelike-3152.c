@@ -602,7 +602,6 @@ static void descend(void) {
 /* ─── Rendering ──────────────────────────────────────────────────────────── */
 
 static void ansi_fg(int c) { printf("\033[38;5;%dm", c); }
-static void ansi_bg(int c) { printf("\033[48;5;%dm", c); }
 static void ansi_reset(void) { printf("\033[0m"); }
 static void clear_screen(void) { printf("\033[2J\033[H"); }
 static void move_cursor(int r, int c) { printf("\033[%d;%dH", r, c); }

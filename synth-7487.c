@@ -349,7 +349,7 @@ static void draw_scope(const int16_t *buf, int len, int w, int h,
     }
 
     /* centre line */
-    for (int x = 0; x < w; x++) grid[mid][x] = 249;   /* · */
+    for (int x = 0; x < w; x++) grid[mid][x] = (char)249;   /* · */
 
     /* plot waveform samples */
     for (int x = 0; x < w; x++) {

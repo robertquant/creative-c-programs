@@ -296,7 +296,7 @@ static Dir ai_decide(void) {
     } else {
 tier2:
         /* --- Tier 2: Chase tail --- */
-        Dir to_tail;
+        (void)0; Dir to_tail;
         Pos tail = g.snake.body[g.snake.len - 1];
         if (bfs(head, tail, 1, &to_tail))
             chosen = to_tail;

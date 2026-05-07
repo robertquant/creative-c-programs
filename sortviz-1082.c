@@ -173,7 +173,7 @@ static void render(SortCtx *ctx, const char *title) {
 
     int bar_width = cols / ctx->size;
     if (bar_width < 1) bar_width = 1;
-    int usable_cols = bar_width * ctx->size;
+    (void)(bar_width * ctx->size);
 
     printf(CLR);
     /* Title bar */

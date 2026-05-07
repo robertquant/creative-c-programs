@@ -565,51 +565,6 @@ static void make_move(GameState *gs, const Move *m) {
     gs->side = -side;
 }
 
-static void undo_move(GameState *gs) {
-    const Move *m = &gs->move;
-
-    /* Switch back to the side that made the move */
-    gs->side = -gs->side;
-    if (gs->side == BLACK) gs->fullmove--;
-
-    /* Undo promotion: put original piece back */
-    int piece = gs->board[m->tr][m->tc];
-    if (m->promotion) {
-        piece = PAWN * gs->side;
-    }
-
-    /* Move piece back */
-    gs->board[m->fr][m->fc] = piece;
-    gs->board[m->tr][m->tc] = m->captured;
-
-    /* Undo en passant capture */
-    if (m->en_passant) {
-        /* The captured pawn was on the same row as 'from', same col as 'to' */
-        gs->board[m->fr][m->tc] = -PAWN * gs->side;
-        gs->board[m->tr][m->tc] = EMPTY;
-    }
-
-    /* Undo castling rook */
-    if (m->castle == 1) {
-        int row = (gs->side == WHITE) ? 7 : 0;
-        gs->board[row][7] = gs->board[row][5];
-        gs->board[row][5] = EMPTY;
-    } else if (m->castle == 2) {
-        int row = (gs->side == WHITE) ? 7 : 0;
-        gs->board[row][0] = gs->board[row][3];
-        gs->board[row][3] = EMPTY;
-    }
-
-    /* Restore saved state */
-    memcpy(gs->castle, gs->prev_castle, sizeof(gs->castle));
-    gs->ep_r = gs->prev_ep_r;
-    gs->ep_c = gs->prev_ep_c;
-    gs->halfmove = gs->prev_halfmove;
-    gs->last_fr = gs->prev_last_fr;
-    gs->last_fc = gs->prev_last_fc;
-    gs->last_tr = gs->prev_last_tr;
-    gs->last_tc = gs->prev_last_tc;
-}
 
 /* ======================== Legal Move Generation ======================== */
 
@@ -645,7 +600,7 @@ static int is_legal_move(const GameState *gs, const Move *m) {
 
 static int evaluate(const GameState *gs) {
     int score = 0;
-    int wk_r = -1, wk_c = -1, bk_r = -1, bk_c = -1;
+    /* find king positions */ int wk_r = -1, wk_c = -1, bk_r = -1, bk_c = -1; (void)wk_r; (void)wk_c; (void)bk_r; (void)bk_c;
 
     for (int r = 0; r < 8; r++) {
         for (int c = 0; c < 8; c++) {
@@ -820,7 +775,7 @@ static void clear_screen(void) {
 
 static void print_piece(int piece) {
     int pt = piece_type(piece);
-    int idx = (piece > 0) ? 0 : 1;
+    
     if (pt < 1 || pt > 6) { printf(" "); return; }
 
     if (piece > 0) {

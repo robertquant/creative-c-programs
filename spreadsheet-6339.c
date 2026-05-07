@@ -77,7 +77,6 @@ static Sheet  sheet;
 static int    cur_col, cur_row;       /* cursor position      */
 static int    scroll_col, scroll_row; /* viewport offset      */
 static int    screen_w, screen_h;     /* terminal size        */
-static int    status_attr;            /* highlight for status */
 
 /* ── Helpers ────────────────────────────────────────────── */
 

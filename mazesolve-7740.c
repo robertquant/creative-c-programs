@@ -188,33 +188,6 @@ static void draw_cell(int cx, int cy) {
     }
 }
 
-static void draw_maze(void) {
-    for (int y = 0; y < maze.h; y++)
-        for (int x = 0; x < maze.w; x++)
-            draw_cell(x, y);
-
-    /* Top border */
-    CURSOR(2, 2);
-    set_color(C_WALL + 60, C_WALL);
-    printf("+");
-    for (int x = 0; x < maze.w; x++) printf("--");
-    printf("+");
-
-    /* Bottom border */
-    CURSOR(2, maze.h + 3);
-    printf("+");
-    for (int x = 0; x < maze.w; x++) printf("--");
-    printf("+");
-
-    /* Side borders */
-    for (int y = 0; y < maze.h; y++) {
-        CURSOR(1, y + 3);
-        printf("|");
-        CURSOR(maze.w * 2 + 2, y + 3);
-        printf("|");
-    }
-    printf(RESET);
-}
 
 static void draw_full_maze_clean(void) {
     CLEAR();
@@ -540,7 +513,7 @@ static void solve_bfs(void) {
     int dy[] = {-1, 0, 1, 0};
     unsigned char walls[] = {WALL_TOP, WALL_RIGHT, WALL_BOTTOM, WALL_LEFT};
 
-    int found = 0;
+    int found = 0; (void)found;
     while (head < tail) {
         Node cur = queue[head++];
 
@@ -683,8 +656,8 @@ static void solve_deadfill(void) {
                     /* Rebuild walls to seal it */
                     maze.cells[y][x] |= WALL_TOP | WALL_BOTTOM | WALL_LEFT | WALL_RIGHT;
                     /* Also block the neighbor's side */
-                    int dx[] = {0, 1, 0, -1};
-                    int dy[] = {-1, 0, 1, 0};
+                    (void)(int[]){0,1,0,-1};
+                    (void)(int[]){-1,0,1,0};
                     unsigned char opp[] = {WALL_BOTTOM, WALL_LEFT, WALL_TOP, WALL_RIGHT};
                     unsigned char walls[] = {WALL_TOP, WALL_RIGHT, WALL_BOTTOM, WALL_LEFT};
                     for (int d = 0; d < 4; d++) {
@@ -773,10 +746,6 @@ static void show_stats(void) {
 
 /* ── Menu UI ───────────────────────────────────────────────────── */
 
-static void clear_line(int y) {
-    CURSOR(1, y);
-    printf(ESC"2K");
-}
 
 static void draw_menu(const char *title, const char **options, int count, int sel) {
     CLEAR();

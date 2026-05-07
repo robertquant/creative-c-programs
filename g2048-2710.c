@@ -107,7 +107,6 @@ static int tile_idx(int v) {
 
 /* Return a background color index for a tile value */
 static int tile_bg(int v) { return TILE_BG[tile_idx(v)]; }
-static int tile_fg(int v) { return TILE_FG[tile_idx(v)]; }
 
 /* Best-score persistence */
 static char *best_path(void) {
