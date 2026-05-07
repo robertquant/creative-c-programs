@@ -31,3 +31,7 @@ fireworks - Terminal Fireworks Particle Simulator
 31	connect4 - Terminal Connect Four Game with AI (minimax alpha-beta, 3 difficulties, animated drop, win highlight, undo, score tracking)
 32	httpd - Tiny Terminal HTTP Server with Live Dashboard (HTTP/1.1 GET/HEAD, MIME types, directory listing, ETag/304, range requests/206, fork-based concurrency, ncurses monitoring)
 33	33	solarium - Terminal Solar System Simulator (8 planets, Kepler orbital mechanics, orbital trails, zoom/pan, minimap, planet info panel, focus tracking, speed control)
+plasma - Terminal Plasma Effect Generator (5 sine-wave interference patterns, 5 color palettes: Fire/Ocean/Neon/Rainbow/Twilight, ANSI 256-color, real-time animation, interactive controls)
+36	typist - Terminal Typing Speed Test (14 passages, 3 difficulties, real-time WPM/accuracy, sparkline history, grade system, ncurses UI)
+35	typing - Terminal Typing Speed Test (4 categories: Common/Code/Quotes/Mixed, 4 durations, real-time WPM/accuracy, color-coded feedback, progress bar, problem key analysis, session bests)
+37	particlelife - Terminal Particle Life Simulator (6 particle types, emergent attraction/repulsion rules, force matrix display, interactive spawning, friction control)

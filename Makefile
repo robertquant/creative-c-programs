@@ -14,7 +14,7 @@ TARGETS = fireworks matrixrain mandelbrot voxelspace enigma sortviz \
           minesweeper roguelike tetris pathfind fallsand raycaster chess \
           boids lifesim lsystem fluidsim synth mazesolve nbody breakout \
           spreadsheet towerdef clothsim sudoku g2048 snake poker \
-          reactdiff connect4 httpd solarium wireframe3d
+          reactdiff connect4 httpd solarium wireframe3d plasma typing
 
 all: $(TARGETS)
 
@@ -116,6 +116,12 @@ solarium: solarium-5087.c
 
 wireframe3d: wireframe3d-8755.c
 	$(CC) $(CFLAGS) -o $@ $< -lm
+
+plasma: plasma-2243.c
+	$(CC) $(CFLAGS) -o $@ $< -lm
+
+typing: typing-5817.c
+	$(CC) $(CFLAGS) -o $@ $< -lm $(NCURSES_LIB)
 
 clean:
 	rm -f $(TARGETS)
