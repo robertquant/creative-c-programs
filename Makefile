@@ -1,6 +1,12 @@
 CC      = gcc
 CFLAGS  = -std=gnu11 -Wall -O2
 
+# macOS compatibility
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	CFLAGS += -D_DARWIN_C_SOURCE
+endif
+
 TARGETS = fireworks matrixrain mandelbrot voxelspace enigma sortviz \
           minesweeper roguelike tetris pathfind fallsand raycaster chess \
           boids lifesim lsystem fluidsim synth mazesolve nbody breakout \
