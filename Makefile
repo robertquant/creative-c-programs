@@ -1,5 +1,5 @@
 CC      = gcc
-CFLAGS  = -std=c11 -Wall -O2
+CFLAGS  = -std=c11 -Wall -O2 -D_GNU_SOURCE
 
 TARGETS = fireworks matrixrain mandelbrot voxelspace enigma sortviz \
           minesweeper roguelike tetris pathfind fallsand raycaster chess \
