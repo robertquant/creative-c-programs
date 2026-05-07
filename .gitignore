@@ -1,0 +1,13 @@
+# Compiled binaries
+*
+!*.c
+!*.h
+!Makefile
+!README.md
+!LICENSE
+!.gitignore
+!themes.log
+
+# OS files
+.DS_Store
+Thumbs.db
