@@ -5,6 +5,9 @@ CFLAGS  = -std=gnu11 -Wall -O2
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 	CFLAGS += -D_DARWIN_C_SOURCE
+	NCURSES_LIB = -lncurses
+else
+	NCURSES_LIB = -lncursesw
 endif
 
 TARGETS = fireworks matrixrain mandelbrot voxelspace enigma sortviz \
@@ -61,7 +64,7 @@ lifesim: lifesim-9490.c
 	$(CC) $(CFLAGS) -o $@ $< -lm -lncurses
 
 lsystem: lsystem-9296.c
-	$(CC) -std=c99 $(CFLAGS) -o $@ $< -lm
+	$(CC) $(CFLAGS) -o $@ $< -lm
 
 fluidsim: fluidsim-18879.c
 	$(CC) $(CFLAGS) -o $@ $< -lm
@@ -91,7 +94,7 @@ sudoku: sudoku-2765.c
 	$(CC) $(CFLAGS) -o $@ $< -lm -lncurses
 
 g2048: g2048-2710.c
-	$(CC) $(CFLAGS) -o $@ $< -lm -lncursesw
+	$(CC) $(CFLAGS) -o $@ $< -lm $(NCURSES_LIB)
 
 snake: snake-4324.c
 	$(CC) $(CFLAGS) -o $@ $< -lm -lncurses
